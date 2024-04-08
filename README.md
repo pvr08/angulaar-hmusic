@@ -31,3 +31,4 @@
 - right panel component
 - top artists component
 - recent-searches component
+
