@@ -24,7 +24,7 @@ export class RecentSearchesComponent implements OnInit {
   }
 
   search(){
-    console.log('Searching...', this.searchField);
+    console.log('Searching', this.searchField);
   }
 
 }
