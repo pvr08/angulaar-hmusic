@@ -6,25 +6,24 @@ import { IUser } from "../Interfaces/IUser";
 import { newSong, newPlaylist } from "./factories";
 
 export function SpotifyUserToUser(user: SpotifyApi.CurrentUsersProfileResponse): IUser {
-  // Safely access the last image's URL, if available
+  
   const imageUrl = user.images.length > 0 ? user.images[user.images.length - 1].url : null;
 
   return {
     id: user.id,
-    name: user.display_name || 'No Name', // Provide a fallback in case display_name is not set
-    imageUrl: imageUrl // This could be null if no images are available
+    name: user.display_name || 'No Name',
+    imageUrl: imageUrl 
   }
 }
 
 
 export function SpotifyPlaylistToPlaylist(playlist: SpotifyApi.PlaylistObjectSimplified): IPlaylist {
-  // Check if 'images' is not null and has at least one element
   const imageUrl = playlist.images && playlist.images.length > 0 ? playlist.images.pop().url : 'defaultImageUrlHere';
 
   return {
     id: playlist.id,
     name: playlist.name,
-    imageUrl: imageUrl, // Use the imageUrl from above, with a fallback if necessary
+    imageUrl: imageUrl, 
   };
 }
 

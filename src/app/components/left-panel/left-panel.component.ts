@@ -15,7 +15,7 @@ export class LeftPanelComponent implements OnInit {
 
   playlists: IPlaylist[] = [];
 
-  // Icons
+  
   homeIcon = faHome;
   searchIcon = faSearch;
   artistIcon = faGuitar;
