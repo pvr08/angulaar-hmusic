@@ -30,11 +30,11 @@ export class SpotifyService {
       return false;
 
       try {
-        await this.getSpotifyUser(); // Direct call for debugging.
+        await this.getSpotifyUser(); 
         console.log(!!this.user);
         return !!this.user;
       } catch (ex) {
-        //console.error(ex);
+        
         return false;
       }
   }

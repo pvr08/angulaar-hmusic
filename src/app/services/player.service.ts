@@ -19,11 +19,11 @@ export class PlayerService {
   async getCurrentSong(){
     clearTimeout(this.timerId);
 
-    // Get the current song
+    
     const song = await this.spotifyService.getCurrentSong();
     this.setCurrentSong(song);
 
-    // Loop
+    
     this.timerId = setInterval(async () => {
       await this.getCurrentSong();
     }, 5000)
