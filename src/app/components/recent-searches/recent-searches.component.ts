@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class RecentSearchesComponent implements OnInit {
 
   recentSearches = [
-    'Top Brazil', 'Top Global', 'Sertanejo Warm-up',
-    'Funk Hits', 'Pagode Party'
+    'Top Artist', 'Top Songs', 'Top Album',
+    'Latest Hits'
   ];
 
   searchField = '';
