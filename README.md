@@ -1,6 +1,6 @@
 # HMusic App
 
-# Credentials
+# Spotify Credentials
 - username: vamshipeesari08@gmail.com
 - password: reactmelodies2024
 
