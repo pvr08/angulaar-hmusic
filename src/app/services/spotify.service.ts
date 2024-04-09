@@ -51,10 +51,11 @@ export class SpotifyService {
   getLoginUrl() {
     const authEndpoint = `${SpotifyConfiguration.authEndpoint}?`;
     const clientId = `client_id=${SpotifyConfiguration.clientId}&`;
+    const clientSecret = `client_secret=${SpotifyConfiguration.clientSecret}&`;
     const redirectUrl = `redirect_uri=${SpotifyConfiguration.redirectUrl}&`;
     const scopes = `scope=${SpotifyConfiguration.scopes.join('%20')}&`;
     const responseType = `response_type=token&show_dialog=true`;
-    return authEndpoint + clientId + redirectUrl + scopes + responseType;
+    return authEndpoint + clientId + clientSecret + redirectUrl + scopes + responseType;
   }
 
   getTokenFromCallbackUrl() {
