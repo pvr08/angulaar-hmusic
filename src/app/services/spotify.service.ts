@@ -66,10 +66,15 @@ export class SpotifyService {
   }
 
   setAccessToken(token: string) {
-    this.spotifyApi.setAccessToken(token);
-    localStorage.setItem('token', token);
-    console.log("session created");
+    try {
+      this.spotifyApi.setAccessToken(token);
+      localStorage.setItem('token', token);
+      console.log("Session created");
+    } catch (error) {
+      console.error("Error setting access token:", error);
+    }
   }
+  
 
   async getUserPlaylists(offset = 0, limit = 50): Promise<IPlaylist[]> {
     const playlists = await this.spotifyApi.getUserPlaylists(this.user.id, { offset, limit });
