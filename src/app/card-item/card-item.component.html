@@ -1,0 +1,16 @@
+<!-- card-item.component.html -->
+
+<div class="card-item" *ngFor="let item of items">
+  <a [routerLink]="[item.type, item.id]">
+    <div *ngIf="item.images.length > 0; else thumbnailPlaceholder">
+      <img [src]="item.images[0].url" [alt]="item.altTitle" />
+    </div>
+    <ng-template #thumbnailPlaceholder>
+      <div class="thumbnail-placeholder">
+        <!-- Your placeholder SVG here -->
+      </div>
+    </ng-template>
+    <h3>{{ item.heading }}</h3>
+    <h6 *ngIf="item.subheading">{{ item.subheading }}</h6>
+  </a>
+</div>

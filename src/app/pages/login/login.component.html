@@ -1,6 +1,17 @@
-<div class="base flex flex-center">
-  <img src="assets/images/spotify-logo-start.png" alt="">
-  <button (click)="openLoginPage()">
-    Hmusic
-  </button>
+<div class="login-container">
+  <div class="logo-container">
+    <title>Sign in</title>
+    <img src="assets/images/HMusic2.png" alt="Hmusic Logo">   
+  </div>
+  <form class="login-form" (ngSubmit)="openLoginPage()">
+    <div class="main">
+      <p class="sign" align="center">Sign in</p>
+      <form class="form1">
+        <input class="un" type="text" align="center" placeholder="Username" [(ngModel)]="username" required>
+        <input class="pass" type="password" align="center" placeholder="Password" [(ngModel)]="password" required>
+       </form>
+	<button type="submit" class="submit">Login</button>
+<p class="forgot" align="center"><a href="#">Forgot Password?</a></p>
+    </div>
+  </form>
 </div>
