@@ -1,5 +1,10 @@
 # HMusic App
 
+# Login Credentials
+
+- username: vamshi
+- password: 12345
+
 # Spotify Credentials
 
 - username: vamshipeesari08@gmail.com
@@ -14,6 +19,8 @@
 - artist-image item component
 - banner component
 - top artist component
+- Liked songs feature
+- created endpoints for getAlbum, getAlbum tracks, getSaved Albums, getSaved Songs
 
 # Vamshi feature
 
@@ -22,6 +29,8 @@
 - left panel component
 - footer component
 - menu-button component
+- Login page UI
+- card-item and card-item grid component
 
 # Harshitha feature
 
@@ -31,6 +40,8 @@
 - right panel component
 - top artists component
 - recent-searches component
+- Player card component
+- Saved Albums feature
 
 - Deployment Link: https://angular-demo-beryl.vercel.app/login
 
