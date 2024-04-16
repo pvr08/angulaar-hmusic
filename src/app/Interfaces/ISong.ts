@@ -11,4 +11,5 @@ export interface ISong {
     imageUrl: string;
   };
   duration: string;
+  preview_url: string;
 }

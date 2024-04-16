@@ -1,0 +1,16 @@
+<div class="my-songs">
+<div>
+    <h2>Saved Albums</h2>
+    
+    <div *ngIf="savedAlbums" >
+        <app-card-item-grid >
+      <app-card-item  *ngFor="let item of transformAlbumsToCardItems(savedAlbums)" [item]="item" ></app-card-item>
+      
+    </app-card-item-grid>
+    </div>
+
+  </div>
+</div>
+<app-right-panel 
+  class="right-panel">
+</app-right-panel>

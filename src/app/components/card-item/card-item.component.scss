@@ -1,0 +1,54 @@
+.card-item {
+  transition: background-color 0.3s;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background-color: #060505;
+  &:hover {
+    background-color: #363636;
+  }
+  width: 100%;
+  img {
+    object-fit:cover;
+    width: 100%;
+    height: 9rem; 
+    border-radius: 0.25rem;
+  }
+
+  .thumbnail-placeholder {
+    width: 100%;
+    height: 9rem; 
+    background-color: #fafafa; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      background-color: #fafafa; 
+    }
+  }
+
+  h3 {
+    margin-top: 0.625rem; 
+    font-size: 1.25rem; 
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #fafafa;
+    text-decoration: none;
+  }
+  a{
+    text-decoration: none;
+  }
+
+  h6 {
+    font-size: 0.875rem; 
+    color: #888888; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

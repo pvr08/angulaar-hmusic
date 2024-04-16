@@ -31,7 +31,15 @@ export class LeftPanelComponent implements OnInit {
 
   buttonClick(button: string){
     this.selectedMenu = button;
+    if(this.selectedMenu==='Home'){
     this.router.navigateByUrl('player/home');
+    }
+    else if(this.selectedMenu==='Search'){
+      this.router.navigateByUrl('player/album');
+    }
+    else if(this.selectedMenu==='Album'){
+      this.router.navigateByUrl('player/album');
+    }
   }
 
   goToPlaylist(playlistId: string){

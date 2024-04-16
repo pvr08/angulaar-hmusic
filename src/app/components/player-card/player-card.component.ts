@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { newSong } from 'src/app/Common/factories';
 import { ISong } from 'src/app/Interfaces/ISong';
 import { PlayerService } from 'src/app/services/player.service';
+import { SpotifyService } from 'src/app/services/spotify.service';
 
 @Component({
   selector: 'app-player-card',
@@ -14,15 +15,16 @@ export class PlayerCardComponent implements OnInit, OnDestroy {
 
   music: ISong = newSong();
   subs: Subscription[] = [];
-
+  song: ISong = newSong();
   // Icons
   previousIcon = faStepBackward;
   nextIcon = faStepForward;
 
-  constructor(private playerService: PlayerService) { }
-
+  constructor(private playerService: PlayerService, private spotifyservice: SpotifyService) { }
+  
   ngOnInit(): void {
     this.getPlayingMusic();
+    this.getCurrentSong(); // Call getCurrentSong() when the component initializes
   }
 
   ngOnDestroy(): void {
@@ -37,6 +39,16 @@ export class PlayerCardComponent implements OnInit, OnDestroy {
     this.subs.push(sub);
   }
 
+  async getCurrentSong(): Promise<void> {
+    try {
+      const song = await this.spotifyservice.getCurrentSong();
+      this.music = song;
+    } catch (error) {
+      console.error('Error getting current song:', error);
+    }
+  }
+  
+
   goBack(): void {
     this.playerService.previousSong();
   }
@@ -44,5 +56,4 @@ export class PlayerCardComponent implements OnInit, OnDestroy {
   goNext(): void {
     this.playerService.nextSong();
   }
-
 }
