@@ -2,6 +2,7 @@ import { Routes } from "@angular/router";
 import { HomeComponent } from "../home/home.component";
 import { MusicListComponent } from "../music-list/music-list.component";
 import { PlayerComponent } from "./player.component";
+import { AlbumComponent } from "../album/album.component";
 
 export const PlayerRoutes: Routes = [
   {
@@ -15,6 +16,10 @@ export const PlayerRoutes: Routes = [
       {
         path: 'list/:type/:id',
         component: MusicListComponent
+      },
+      {
+        path: 'album',
+        component:AlbumComponent
       }
     ]
   }

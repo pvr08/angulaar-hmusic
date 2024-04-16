@@ -20,7 +20,7 @@
           (click)="playSong(song)"
           [class.playing]="song.id === currentSong.id">
         <td>
-          <fa-icon class="play" [icon]="playIcon"></fa-icon>
+          <fa-icon class="play" [icon]="playIcon" (click)="playSong(song)"></fa-icon>
         </td>
         <td>{{ song.title }}</td>
         <td>{{ getArtists(song) }}</td>

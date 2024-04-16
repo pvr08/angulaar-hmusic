@@ -21,7 +21,8 @@ export function newSong(): ISong {
     },
     artists: [],
     duration: '',
-    title: ''
+    title: '',
+    preview_url:''
   }
 }
 
