@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import Spotify from 'spotify-web-api-js';
 import { SpotifyConfiguration } from 'src/environments/environment';
-import { SpotifyArtistToArtist, SpotifyPlaylistToPlaylist, SpotifySinglePlaylistToPlaylist, SpotifyTrackToSong, SpotifyUserToUser ,SpotifySingleAlbumToAlbum, SpotifyArtistToArtist2, SpotifyAlbumToAlbum} from '../Common/spotifyHelper';
+import { SpotifyArtistToArtist, SpotifyPlaylistToPlaylist, SpotifySinglePlaylistToPlaylist, SpotifyTrackToSong, SpotifyUserToUser ,SpotifySingleAlbumToAlbum, SpotifyArtistToArtist2, SpotifyAlbumToAlbum,SpotifyNewReleasesToListOfAlbums} from '../Common/spotifyHelper';
 import { IArtist } from '../Interfaces/IArtist';
 import { ISong } from '../Interfaces/ISong';
 import { IPlaylist } from '../Interfaces/IPlaylist';
@@ -128,8 +128,15 @@ export class SpotifyService {
     //await this.spotifyApi.play(this.getCurrentSong);
     //await this.spotifyApi.queue(songId);
     await this.spotifyApi.play();
-    await this.spotifyApi.skipToNext();
+    //await this.spotifyApi.skipToNext();
   }
+  async pauseSong() {
+    //await this.spotifyApi.play(this.getCurrentSong);
+    //await this.spotifyApi.queue(songId);
+    await this.spotifyApi.pause();
+    //await this.spotifyApi.skipToNext();
+  }
+  
 
   async getCurrentSong(): Promise<ISong> {
     const currentSongSpotify = await this.spotifyApi.getMyCurrentPlayingTrack();
@@ -192,4 +199,28 @@ export class SpotifyService {
       release_date: album.release_date
     }));
   }
+  async getNewReleases(): Promise<IAlbum[]> {
+    try {
+      const newReleases = await this.spotifyApi.getNewReleases();
+      console.log(newReleases);
+      return SpotifyNewReleasesToListOfAlbums(newReleases);
+    } catch (error) {
+      console.error('Error retrieving new releases:', error);
+      return [];
+    }
+  }
+  
+  
+  
+  
 }
+
+// getFeaturedPlaylists(
+//   options?: Object,
+//   callback?: ResultsCallback<SpotifyApi.ListOfFeaturedPlaylistsResponse>
+// ): Promise<SpotifyApi.ListOfFeaturedPlaylistsResponse>;
+
+// getNewReleases(
+//   options?: Object,
+//   callback?: ResultsCallback<SpotifyApi.ListOfNewReleasesResponse>
+// ): Promise<SpotifyApi.ListOfNewReleasesResponse>;

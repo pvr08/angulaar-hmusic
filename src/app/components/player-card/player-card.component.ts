@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons';
+import { faStepBackward, faStepForward,faPause } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { newSong } from 'src/app/Common/factories';
 import { ISong } from 'src/app/Interfaces/ISong';
@@ -19,12 +19,13 @@ export class PlayerCardComponent implements OnInit, OnDestroy {
   // Icons
   previousIcon = faStepBackward;
   nextIcon = faStepForward;
+  pauseIcon = faPause;
 
   constructor(private playerService: PlayerService, private spotifyservice: SpotifyService) { }
   
   ngOnInit(): void {
     this.getPlayingMusic();
-    this.getCurrentSong(); // Call getCurrentSong() when the component initializes
+    this.getCurrentSong(); 
   }
 
   ngOnDestroy(): void {
@@ -55,5 +56,8 @@ export class PlayerCardComponent implements OnInit, OnDestroy {
 
   goNext(): void {
     this.playerService.nextSong();
+  }
+  pause(): void{
+    this.spotifyservice.pauseSong();
   }
 }

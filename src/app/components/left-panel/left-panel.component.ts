@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faGuitar, faHome, faMusic, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faGuitar, faHome, faMusic, faSearch,faHeart,faBell } from '@fortawesome/free-solid-svg-icons';
 import { IPlaylist } from 'src/app/Interfaces/IPlaylist';
 import { SpotifyService } from 'src/app/services/spotify.service';
+
 
 @Component({
   selector: 'app-left-panel',
@@ -14,13 +15,16 @@ export class LeftPanelComponent implements OnInit {
   selectedMenu = 'Home';
 
   playlists: IPlaylist[] = [];
+  
 
   // Icons
   homeIcon = faHome;
   searchIcon = faSearch;
   artistIcon = faGuitar;
+  albumIcon = faMusic;
   playlistIcon = faMusic;
-
+  likedsongIcon = faHeart;
+  newreleaseIcon =faBell;
   constructor(
     private router: Router,
     private spotifyService: SpotifyService) { }
@@ -34,11 +38,14 @@ export class LeftPanelComponent implements OnInit {
     if(this.selectedMenu==='Home'){
     this.router.navigateByUrl('player/home');
     }
-    else if(this.selectedMenu==='Search'){
-      this.router.navigateByUrl('player/album');
+    else if(this.selectedMenu==='LikedSongs'){
+      this.router.navigateByUrl('player/mysong');
     }
     else if(this.selectedMenu==='Album'){
       this.router.navigateByUrl('player/album');
+    }
+    else if(this.selectedMenu==='NewReleases'){
+      this.router.navigateByUrl('player/newreleases');
     }
   }
 
