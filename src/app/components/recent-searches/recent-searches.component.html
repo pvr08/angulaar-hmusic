@@ -3,7 +3,9 @@
   [(ngModel)]="searchField"
   placeholder="Artists, Songs, Playlists"
   (keyup.enter)="search()"
+  
 >
+
 <div class="suggestions flex">
   <span
     *ngFor="let recentSearch of recentSearches" 

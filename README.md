@@ -21,6 +21,8 @@
 - top artist component
 - Liked songs feature
 - created endpoints for getAlbum, getAlbum tracks, getSaved Albums, getSaved Songs
+- Liked songs feature
+- MongoDb backend
 
 # Vamshi feature
 
@@ -29,8 +31,9 @@
 - left panel component
 - footer component
 - menu-button component
-- Login page UI
+- Login page feature
 - card-item and card-item grid component
+- New Releases feature
 
 # Harshitha feature
 
@@ -42,6 +45,7 @@
 - recent-searches component
 - Player card component
 - Saved Albums feature
+- My Albums feature
 
 - Deployment Link: https://angular-demo-beryl.vercel.app/login
 

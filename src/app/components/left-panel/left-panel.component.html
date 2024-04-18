@@ -11,21 +11,28 @@
     >
       <fa-icon [icon]="homeIcon" ></fa-icon>
     </app-menu-button>
-
     <app-menu-button 
-      [description]="'Search'" 
-      [selected]="selectedMenu === 'Search'"
-      (click)="buttonClick('Search')"
+      [description]="'New Releases'" 
+      [selected]="selectedMenu === 'NewReleases'"
+      (click)="buttonClick('NewReleases')"
     >
-      <fa-icon [icon]="searchIcon" ></fa-icon>
+      <fa-icon [icon]="newreleaseIcon" ></fa-icon>
     </app-menu-button>
 
     <app-menu-button 
-      [description]="'Album'"
+      [description]="'LikedSongs'" 
+      [selected]="selectedMenu === 'LikedSongs'"
+      (click)="buttonClick('LikedSongs')"
+    >
+      <fa-icon [icon]="likedsongIcon" ></fa-icon>
+    </app-menu-button>
+
+    <app-menu-button 
+      [description]="'MyAlbums'"
       [selected]="selectedMenu === 'Album'"
       (click)="buttonClick('Album')"
     >
-      <fa-icon [icon]="artistIcon" ></fa-icon>
+      <fa-icon [icon]="albumIcon" ></fa-icon>
     </app-menu-button>
 
   </div>

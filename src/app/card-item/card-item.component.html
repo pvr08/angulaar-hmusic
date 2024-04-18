@@ -1,4 +1,4 @@
-<!-- card-item.component.html -->
+
 
 <div class="card-item" *ngFor="let item of items">
   <a [routerLink]="[item.type, item.id]">
@@ -7,7 +7,7 @@
     </div>
     <ng-template #thumbnailPlaceholder>
       <div class="thumbnail-placeholder">
-        <!-- Your placeholder SVG here -->
+       
       </div>
     </ng-template>
     <h3>{{ item.heading }}</h3>

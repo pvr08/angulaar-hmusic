@@ -193,3 +193,20 @@ export function SpotifyAlbumToAlbum(album: SpotifyApi.AlbumObjectFull): IAlbum {
     release_date: album.release_date
   };
 }
+export function SpotifyNewReleasesToListOfAlbums(response: SpotifyApi.ListOfNewReleasesResponse): IAlbum[] {
+  if (!response || !response.albums || response.albums.items.length === 0)
+    return [];
+
+  return response.albums.items.map(item => ({
+    id: item.id,
+    name: item.name,
+    artists: [],
+    images: item.images.map(image => ({
+      url: image.url,
+      height: image.height,
+      width: image.width
+    })),
+    album_type: item.album_type,
+    release_date: ''
+  }));
+}

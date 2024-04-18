@@ -20,6 +20,8 @@ import { BannerComponent } from 'src/app/components/banner/banner.component';
 import { AlbumComponent } from '../album/album.component';
 import { CardItemComponent } from 'src/app/components/card-item/card-item.component';
 import { CardItemGridComponent } from 'src/app/components/card-item-grid/card-item-grid.component';
+import { MysongComponent } from '../mysong/mysong.component';
+import { NewreleasesComponent } from '../newreleases/newreleases.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { CardItemGridComponent } from 'src/app/components/card-item-grid/card-it
     BannerComponent,
     AlbumComponent,
     CardItemComponent,
-    CardItemGridComponent
+    CardItemGridComponent,
+    MysongComponent,
+    NewreleasesComponent
   ],
   imports: [
     CommonModule,

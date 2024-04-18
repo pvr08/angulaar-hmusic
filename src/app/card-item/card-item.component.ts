@@ -1,4 +1,4 @@
-// card-item.component.ts
+
 
 import { Component, Input } from '@angular/core';
 
