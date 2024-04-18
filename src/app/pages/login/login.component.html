@@ -1,17 +1,29 @@
 <div class="login-container">
   <div class="logo-container">
     <title>Sign in</title>
-    <img src="/src/assets/images/HMusic2.png" alt="Hmusic Logo">   
+    <img src="/src/assets/images/HMusic2.png" alt="Hmusic Logo">
   </div>
-  <form class="login-form" (ngSubmit)="openLoginPage()">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
     <div class="main">
       <p class="sign" align="center">Sign in</p>
-      <form class="form1">
-        <input class="un" type="text" align="center" placeholder="Username" [(ngModel)]="username" required>
-        <input class="pass" type="password" align="center" placeholder="Password" [(ngModel)]="password" required>
-       </form>
-	<button type="submit" class="submit">Login</button>
-<p class="forgot" align="center"><a href="#">Forgot Password?</a></p>
+      <div *ngIf="errorMessage" class="error-message" align="center">{{ errorMessage }}</div>
+
+      
+      <input class="un" type="text" align="center" placeholder="Username" formControlName="username">
+      <div *ngIf="loginForm.get('username').touched && loginForm.get('username').invalid" class="error-message" align="center">
+        <div *ngIf="loginForm.get('username').errors['required']">Username is required.</div>
+        <div *ngIf="loginForm.get('username').errors['minlength']">Username must be at least 3 characters long.</div>
+      </div>
+
+      
+      <input class="pass" type="password" align="center" placeholder="Password" formControlName="password">
+      <div *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid" class="error-message" align="center">
+        <div *ngIf="loginForm.get('password').errors['required']">Password is required.</div>
+        <div *ngIf="loginForm.get('password').errors['minlength']">Password must be at least 6 characters long.</div>
+      </div>
+
+      <button type="submit" class="submit" [disabled]="loginForm.invalid">Login</button>
+      <p class="forgot" align="center"><a href="#">Forgot Password?</a></p>
     </div>
   </form>
 </div>
